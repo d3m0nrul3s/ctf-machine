@@ -79,7 +79,7 @@ rlwrap nc -lvnp 443
 
 Анализ версии операционной системы и ядра Linux показал использование устаревшего ПО:
 ```bash
-sh-3.00$ uname -a
+bash-3.00$ uname -a
 Linux kioptrix.level2 2.6.9-55.EL #1 Wed May 2 13:52:16 EDT 2007 i686 i686 i320 GNU/Linux
 ```
 
