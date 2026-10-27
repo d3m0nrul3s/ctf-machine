@@ -7,3 +7,4 @@
 
 ## 🏁 Пройденные машины (Dashboard)
 - Kioptrix Level 1 [r4tel youtube](https://www.youtube.com/watch?v=a8uS3kH8aN8&t=36s)
+- Kioptrix Level 3 [r4tel youtube](https://www.youtube.com/watch?v=DcMxfA_MouE)
